@@ -12,11 +12,20 @@ zoom_grafico = 15
 
 #data 
 
-datetime_now = datetime.now()
-datetime_now__vec = [str(datetime_now.year),str(datetime_now.month),str(datetime_now.day)]
-previous_date = datetime_now - timedelta(days = 60)
-previous_date_vec = [str(previous_date.year),str(previous_date.month),str(previous_date.day)]
-end_date,start_date = '-'.join(datetime_now__vec),'-'.join(previous_date_vec)
+class oper:
+    def __init__(self,datetime,time_delta):
+        self.datetime = datetime 
+        self.time_delta = time_delta
+        self.previous_date = datetime - time_delta
+    def now__vec(self):
+        return [str(self.datetime.year),str(self.datetime.month),str(self.datetime.day)]
+    def previous_vec(self):
+        return [str(self.previous_date.year),str(self.previous_date.month),str(self.previous_date.day)]
+
+#previous_date = datetime_now - timedelta(days = 60)
+prova1 = oper(datetime.now(),timedelta(days = 60))
+
+end_date,start_date = '-'.join(prova1.now__vec()),'-'.join(prova1.previous_vec())
 
 # Dati
 
